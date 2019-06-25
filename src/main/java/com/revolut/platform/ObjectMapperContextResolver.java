@@ -1,16 +1,21 @@
 package com.revolut.platform;
 
 import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
 import com.fasterxml.jackson.databind.module.SimpleModule;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
+import com.revolut.util.Constants;
 import org.joda.money.Money;
 
 import javax.ws.rs.ext.ContextResolver;
 import java.io.IOException;
+import java.math.BigDecimal;
 
 public class ObjectMapperContextResolver implements ContextResolver<ObjectMapper> {
 
@@ -35,6 +40,7 @@ public class ObjectMapperContextResolver implements ContextResolver<ObjectMapper
         mapper.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
         SimpleModule module = new SimpleModule();
         module.addSerializer(Money.class, new MoneySerializer());
+        module.addDeserializer(Money.class, new MoneyDeserializer());
         mapper.registerModule(module);
         return mapper;
     }
@@ -49,4 +55,18 @@ public class ObjectMapperContextResolver implements ContextResolver<ObjectMapper
             jgen.writeString(value.getAmount().toString());
         }
     }
+
+    private static class MoneyDeserializer extends StdDeserializer<Money> {
+        protected MoneyDeserializer() {
+            super(Money.class);
+        }
+
+        @Override
+        public Money deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException {
+            return Money.of(Constants.CURRENCY_UNIT, Double.parseDouble(jp.readValueAs(String.class)));
+        }
+    }
+
+
+
 }

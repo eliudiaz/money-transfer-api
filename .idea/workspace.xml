@@ -2,12 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b2779aa8-3e75-4b30-93b3-10f61467e145" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/revolut/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/revolut/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/revolut/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/revolut/BaseApp.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/revolut/api/resources/dto/SearchResultDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/revolut/api/resources/dto/SearchResultDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/revolut/model/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/revolut/model/Account.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/revolut/model/TransactionLog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/revolut/model/TransactionLog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/revolut/platform/ObjectMapperContextResolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/revolut/platform/ObjectMapperContextResolver.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/revolut/resources/AccountsResourceIT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/revolut/resources/AccountsResourceIT.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
@@ -20,7 +17,7 @@
     <SUITE FILE_PATH="coverage/money_transfer_api$com_revolut_services_in_money_transfer_api.ic" NAME="com.revolut.services in money-transfer-api Coverage Results" MODIFIED="1561420528772" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.revolut.services.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/money_transfer_api$All_in_money_transfer_api.ic" NAME="All in money-transfer-api Coverage Results" MODIFIED="1561500376545" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/money_transfer_api$All_in_money_transfer_api.ic" NAME="All in money-transfer-api Coverage Results" MODIFIED="1561501330896" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/money_transfer_api$AccountsResourceIT.ic" NAME="AccountsResourceIT Coverage Results" MODIFIED="1561500369278" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.revolut.resources.*</FILTER>
     </SUITE>
@@ -32,22 +29,13 @@
     </SUITE>
   </component>
   <component name="CoverageViewManager">
-    <option name="myElementSize" value="192" />
+    <option name="myElementSize" value="77" />
   </component>
   <component name="FavoritesManager">
     <favorites_list name="money-transfer-api" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="275">
-              <caret line="56" column="21" selection-start-line="56" selection-start-column="21" selection-end-line="56" selection-end-column="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/revolut/Main.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -70,13 +58,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/README.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="287">
-                <caret line="17" selection-start-line="17" selection-end-line="17" />
-              </first_editor>
-              <second_editor />
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/revolut/model/Account.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="121">
+              <caret line="18" column="18" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -84,8 +69,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/revolut/api/resources/AppResourcesConfig.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="226">
-              <caret line="19" column="36" selection-start-line="19" selection-start-column="36" selection-end-line="19" selection-end-column="36" />
+            <state relative-caret-position="144">
+              <caret line="19" column="35" selection-start-line="19" selection-start-column="35" selection-end-line="19" selection-end-column="35" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -94,10 +79,32 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/revolut/platform/ObjectMapperContextResolver.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="244">
+              <caret line="69" column="4" selection-start-line="69" selection-start-column="4" selection-end-line="69" selection-end-column="4" />
+              <folding>
+                <element signature="e#2020#2021#0" expanded="true" />
+                <element signature="e#2062#2063#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/revolut/model/TransactionLog.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="121">
+              <caret line="17" column="18" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/revolut/resources/AccountsResourceIT.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="38" column="16" lean-forward="true" selection-start-line="38" selection-start-column="16" selection-end-line="38" selection-end-column="16" />
+            <state relative-caret-position="-7">
+              <caret line="57" column="36" selection-start-line="57" selection-start-column="36" selection-end-line="57" selection-end-column="36" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -105,7 +112,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/revolut/api/resources/dto/SearchResultDto.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="238">
@@ -115,22 +122,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/revolut/services/WireTransferenceServiceTest.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/revolut/api/resources/AccountsResource.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="24" selection-start-line="24" selection-end-line="24" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/revolut/services/WireTransferenceServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="43" column="64" selection-start-line="43" selection-start-column="51" selection-end-line="43" selection-end-column="64" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="357">
+              <caret line="33" column="8" lean-forward="true" selection-start-line="33" selection-start-column="8" selection-end-line="33" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -174,9 +169,12 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/main/java/com/revolut/BaseApp.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/revolut/resources/AccountsResourceIT.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/revolut/App.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/revolut/api/resources/dto/SearchResultDto.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/revolut/resources/AccountsResourceIT.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/revolut/model/Account.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/revolut/platform/ObjectMapperContextResolver.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/revolut/model/TransactionLog.java" />
       </list>
     </option>
   </component>
@@ -247,13 +245,6 @@
               <item name="money-transfer-api" type="b2602c69:ProjectViewProjectNode" />
               <item name="money-transfer-api" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="money-transfer-api" type="b2602c69:ProjectViewProjectNode" />
-              <item name="money-transfer-api" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -287,7 +278,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1561501330721" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1561502460813" />
     <property name="restartRequiresConfirmation" value="false" />
   </component>
   <component name="RunDashboard">
@@ -302,20 +293,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.All in money-transfer-api">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.revolut.Main" />
-      <module name="money-transfer-api" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.revolut.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.AccountsResourceIT.findOneAccount">
     <configuration name="AccountsResourceIT" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="money-transfer-api" />
       <extension name="coverage">
@@ -347,6 +325,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="AccountsResourceIT.findOneAccount" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="money-transfer-api" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.revolut.resources.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.revolut.resources" />
+      <option name="MAIN_CLASS_NAME" value="com.revolut.resources.AccountsResourceIT" />
+      <option name="METHOD_NAME" value="findOneAccount" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="AccountsResourceIT.singleTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="money-transfer-api" />
       <extension name="coverage">
@@ -373,11 +367,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.All in money-transfer-api" />
+        <item itemvalue="JUnit.AccountsResourceIT.findOneAccount" />
         <item itemvalue="JUnit.AccountsResourceIT.findAllTest" />
+        <item itemvalue="JUnit.All in money-transfer-api" />
         <item itemvalue="JUnit.AccountsResourceIT" />
         <item itemvalue="JUnit.AccountsResourceIT.singleTest" />
-        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -397,42 +391,43 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="AccountsResourceIT_findAllTest - 2019.06.25 at 16h 16m 25s.xml">
-      <configuration name="AccountsResourceIT.findAllTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="AccountsResourceIT_findAllTest - 2019.06.25 at 16h 18m 06s.xml">
-      <configuration name="AccountsResourceIT.findAllTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="AccountsResourceIT_findAllTest - 2019.06.25 at 16h 18m 16s.xml">
-      <configuration name="AccountsResourceIT.findAllTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="AccountsResourceIT_findAllTest - 2019.06.25 at 16h 18m 17s.xml">
-      <configuration name="AccountsResourceIT.findAllTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="AccountsResourceIT_findAllTest - 2019.06.25 at 16h 19m 25s.xml">
-      <configuration name="AccountsResourceIT.findAllTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="AccountsResourceIT_findAllTest - 2019.06.25 at 16h 20m 04s.xml">
-      <configuration name="AccountsResourceIT.findAllTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="AccountsResourceIT_findAllTest - 2019.06.25 at 16h 20m 50s.xml">
-      <configuration name="AccountsResourceIT.findAllTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="AccountsResourceIT_findAllTest - 2019.06.25 at 16h 21m 16s.xml">
-      <configuration name="AccountsResourceIT.findAllTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="AccountsResourceIT_findAllTest - 2019.06.25 at 16h 21m 53s.xml">
-      <configuration name="AccountsResourceIT.findAllTest" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="All_in_money-transfer-api - 2019.06.25 at 16h 22m 07s.xml">
       <configuration name="All in money-transfer-api" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="All_in_money-transfer-api - 2019.06.25 at 16h 22m 17s.xml">
+      <configuration name="All in money-transfer-api" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="AccountsResourceIT_findAllTest - 2019.06.25 at 16h 25m 48s.xml">
+      <configuration name="AccountsResourceIT.findAllTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="AccountsResourceIT_findOneAccount - 2019.06.25 at 16h 29m 53s.xml">
+      <configuration name="AccountsResourceIT.findOneAccount" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="AccountsResourceIT_findOneAccount - 2019.06.25 at 16h 31m 54s.xml">
+      <configuration name="AccountsResourceIT.findOneAccount" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="AccountsResourceIT_findOneAccount - 2019.06.25 at 16h 33m 41s.xml">
+      <configuration name="AccountsResourceIT.findOneAccount" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="AccountsResourceIT_findOneAccount - 2019.06.25 at 16h 37m 28s.xml">
+      <configuration name="AccountsResourceIT.findOneAccount" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="AccountsResourceIT_findOneAccount - 2019.06.25 at 16h 37m 51s.xml">
+      <configuration name="AccountsResourceIT.findOneAccount" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="AccountsResourceIT_findOneAccount - 2019.06.25 at 16h 39m 23s.xml">
+      <configuration name="AccountsResourceIT.findOneAccount" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="AccountsResourceIT_findOneAccount - 2019.06.25 at 16h 41m 04s.xml">
+      <configuration name="AccountsResourceIT.findOneAccount" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="997000" />
+    <option name="totallyTimeSpent" value="2173000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1877" y="101" width="1869" height="1048" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.71933085" visible="true" weight="0.3136289" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -481,16 +476,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/revolut/api/resources/AppResourcesConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="226">
-          <caret line="19" column="36" selection-start-line="19" selection-start-column="36" selection-end-line="19" selection-end-column="36" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12.jar!/org/junit/internal/runners/model/ReflectiveCallable.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="222">
@@ -515,20 +500,96 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/revolut/resources/AccountsResourceIT.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/revolut/api/resources/dto/SearchResultDto.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="38" column="16" lean-forward="true" selection-start-line="38" selection-start-column="16" selection-end-line="38" selection-end-column="16" />
+        <state relative-caret-position="238">
+          <caret line="19" column="5" lean-forward="true" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="56" column="21" selection-start-line="56" selection-start-column="21" selection-end-line="56" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/revolut/api/resources/AccountsResource.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="33" column="8" lean-forward="true" selection-start-line="33" selection-start-column="8" selection-end-line="33" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="287">
+            <caret line="17" selection-start-line="17" selection-end-line="17" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/revolut/model/Account.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="121">
+          <caret line="18" column="18" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/revolut/api/resources/AppResourcesConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="19" column="35" selection-start-line="19" selection-start-column="35" selection-end-line="19" selection-end-column="35" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/revolut/api/resources/dto/SearchResultDto.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/revolut/services/WireTransferenceServiceTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="19" column="5" lean-forward="true" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
+        <state relative-caret-position="408">
+          <caret line="24" selection-start-line="24" selection-end-line="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/revolut/resources/AccountsResourceIT.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-7">
+          <caret line="57" column="36" selection-start-line="57" selection-start-column="36" selection-end-line="57" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/revolut/platform/ObjectMapperContextResolver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="244">
+          <caret line="69" column="4" selection-start-line="69" selection-start-column="4" selection-end-line="69" selection-end-column="4" />
+          <folding>
+            <element signature="e#2020#2021#0" expanded="true" />
+            <element signature="e#2062#2063#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/revolut/services/WireTransferenceServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="43" column="64" selection-start-line="43" selection-start-column="51" selection-end-line="43" selection-end-column="64" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/revolut/model/TransactionLog.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="121">
+          <caret line="17" column="18" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
         </state>
       </provider>
     </entry>
