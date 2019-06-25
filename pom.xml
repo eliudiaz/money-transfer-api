@@ -241,7 +241,7 @@
                 <artifactId>exec-maven-plugin</artifactId>
                 <version>1.2.1</version>
                 <configuration>
-                    <mainClass>com.revolut.App</mainClass>
+                    <mainClass>com.revolut.Main</mainClass>
                     <arguments>
                     </arguments>
                 </configuration>
