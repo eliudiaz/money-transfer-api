@@ -1,6 +1,8 @@
 package com.revolut.resources;
 
 import com.revolut.api.resources.dto.SearchResultDto;
+import com.revolut.api.resources.dto.WireTransferenceRequestDto;
+import com.revolut.api.resources.dto.WireTransferenceResultDto;
 import com.revolut.model.Account;
 import com.revolut.platform.ObjectMapperContextResolver;
 import org.assertj.core.api.Assertions;
@@ -9,9 +11,11 @@ import org.junit.Test;
 
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.MediaType;
+import java.math.BigDecimal;
 
 public class OperationsResourceIT extends BaseIT {
 
@@ -28,32 +32,26 @@ public class OperationsResourceIT extends BaseIT {
 
     @Test
     public void transferMoneyTest() {
-        final SearchResultDto<Account> result = target
-                .path("/accounts")
-                .request(MediaType.APPLICATION_JSON_TYPE)
-                .get(SearchResultDto.class);
-
-        Assertions.assertThat(result.isSuccess()).isTrue();
-        Assertions.assertThat(result.getResult().isEmpty()).isFalse();
-    }
-
-    @Test
-    public void findOneAccountTest() {
-        final SearchResultDto<Account> result = target
+        final SearchResultDto<Account> accounts = target
                 .path("/accounts")
                 .request(MediaType.APPLICATION_JSON_TYPE)
                 .get(new GenericType<SearchResultDto<Account>>() {
                 });
+        final WireTransferenceRequestDto requestDto = WireTransferenceRequestDto.builder()
+                .amount(BigDecimal.valueOf(500))
+                .originAccountId(accounts.getResult().get(0).getId())
+                .targetAccountId(accounts.getResult().get(1).getId())
+                .build();
 
-        final Account account = target
-                .path("/accounts/".concat(result.getResult().get(0).getId().toString()))
+        final WireTransferenceResultDto result = target
+                .path("/operations/transfer")
                 .request(MediaType.APPLICATION_JSON_TYPE)
-                .get(Account.class);
+                .post(Entity.entity(requestDto, MediaType.APPLICATION_JSON_TYPE))
+                .readEntity(WireTransferenceResultDto.class);
 
-        Assertions.assertThat(account.getId()).isNotNull();
-        Assertions.assertThat(account.getFirstName()).isNotNull();
-        Assertions.assertThat(account.getLastName()).isNotNull();
-        Assertions.assertThat(account.getBalance()).isNotNull();
+
+        Assertions.assertThat(result.isSuccess()).isTrue();
+        Assertions.assertThat(result.getWireTransferenceId()).isNotNull();
     }
 
 
