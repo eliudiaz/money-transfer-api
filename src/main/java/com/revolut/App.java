@@ -42,7 +42,7 @@ public class App {
                 }
             });
             newProcess.start();
-            while(!server.isStarted()){
+            while (!server.isStarted()) {
                 Thread.sleep(1000);
             }
         } else {
