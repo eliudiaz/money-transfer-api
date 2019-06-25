@@ -188,10 +188,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-1877" />
-    <option name="y" value="101" />
-    <option name="width" value="1869" />
-    <option name="height" value="1048" />
+    <option name="x" value="-1865" />
+    <option name="y" value="105" />
+    <option name="width" value="1787" />
+    <option name="height" value="992" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -250,7 +250,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1561504679365" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1561504783745" />
     <property name="restartRequiresConfirmation" value="false" />
   </component>
   <component name="RunDashboard">

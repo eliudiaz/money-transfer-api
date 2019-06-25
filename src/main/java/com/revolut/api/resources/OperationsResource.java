@@ -14,15 +14,15 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-@Path("/transactions")
-public class TransferenceResource {
+@Path("/operations")
+public class OperationsResource {
 
     private final WireTransferenceService transferenceService;
     private final AccountsService accountsService;
 
     @Inject
-    public TransferenceResource(final WireTransferenceService transferenceService,
-                                final AccountsService accountsService) {
+    public OperationsResource(final WireTransferenceService transferenceService,
+                              final AccountsService accountsService) {
         this.transferenceService = transferenceService;
         this.accountsService = accountsService;
     }
