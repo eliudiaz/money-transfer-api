@@ -24,7 +24,7 @@ public class WireTransference {
 
 
     public enum Status {
-        CREATED, IN_PROGRESS, COMPLETED, FAILED
+        COMPLETED, FAILED
     }
 
 
