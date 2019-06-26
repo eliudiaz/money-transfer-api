@@ -21,6 +21,7 @@ import javax.inject.Singleton;
 import java.math.BigDecimal;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 import java.util.Objects;
 
 @Singleton
@@ -135,5 +136,9 @@ public class WireTransferenceServiceImpl implements WireTransferenceService {
 
     private enum OperationType {
         ADD, SUBTRACT
+    }
+
+    public List<WireTransference> findAll(){
+        return wireTransferenceRepository.findAll();
     }
 }

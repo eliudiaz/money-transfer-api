@@ -1,8 +1,12 @@
 package com.revolut.repositories;
 
+import com.revolut.model.Account;
 import com.revolut.model.Sequences;
 import com.revolut.model.WireTransference;
+import com.revolut.model.tables.WireTransfer;
+import com.revolut.util.Constants;
 import com.revolut.util.DataBaseHelper;
+import org.joda.money.Money;
 import org.jooq.impl.DSL;
 
 import javax.inject.Inject;
@@ -11,7 +15,10 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.util.Calendar;
+import java.util.List;
+import java.util.stream.Collectors;
 
+import static com.revolut.model.tables.Account.ACCOUNT;
 import static com.revolut.model.tables.WireTransfer.WIRE_TRANSFER;
 
 public class WireTransferenceRepositoryImpl implements WireTransferenceRepository {
@@ -44,6 +51,36 @@ public class WireTransferenceRepositoryImpl implements WireTransferenceRepositor
                     .execute();
             transference.setId(id);
         } catch (SQLException e) {
+            throw new InternalServerErrorException();
+        }
+    }
+
+    public List<WireTransference> findAll() {
+        try (Connection connection = dataBaseHelper.getConnection()) {
+
+            return DSL.using(connection)
+                    .select(
+                            WIRE_TRANSFER.ID,
+                            WIRE_TRANSFER.AMOUNT,
+                            WIRE_TRANSFER.ORIGIN_ACCOUNT_ID,
+                            WIRE_TRANSFER.TARGET_ACCOUNT_ID,
+                            WIRE_TRANSFER.STATUS,
+                            WIRE_TRANSFER.CREATED_AT
+                            )
+                    .from(WIRE_TRANSFER)
+                    .fetch()
+                    .stream()
+                    .map(r ->
+                            WireTransference.builder()
+                                    .id(r.get(WIRE_TRANSFER.ID).longValue())
+                                    .amount(Money.of(Constants.CURRENCY_UNIT,r.get(WIRE_TRANSFER.AMOUNT)))
+                                    .originAccountId(r.get(WIRE_TRANSFER.ORIGIN_ACCOUNT_ID).longValue())
+                                    .targetAccountId(r.get(WIRE_TRANSFER.TARGET_ACCOUNT_ID).longValue())
+                                    .createdAt(r.get(WIRE_TRANSFER.CREATED_AT))
+                                    .build()
+                    ).collect(Collectors.toList());
+        } catch (SQLException e) {
+            e.printStackTrace(System.err);
             throw new InternalServerErrorException();
         }
     }

@@ -7,6 +7,7 @@ import com.revolut.api.resources.dto.requests.WireTransferenceRequestDto;
 import com.revolut.api.resources.dto.responses.WireTransferenceResultDto;
 import com.revolut.exception.ErrorMessage;
 import com.revolut.model.Account;
+import com.revolut.model.WireTransference;
 import com.revolut.platform.ObjectMapperContextResolver;
 import lombok.extern.slf4j.Slf4j;
 import org.assertj.core.api.Assertions;
@@ -20,6 +21,7 @@ import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.MediaType;
 import java.math.BigDecimal;
+import java.util.List;
 
 @Slf4j
 public class OperationsResourceIT extends BaseIT {
@@ -47,14 +49,9 @@ public class OperationsResourceIT extends BaseIT {
 
     @Test
     public void successTransferMoneyTest() {
-        AccountResponseDto originAccount = registerAccount(BigDecimal.valueOf(1000L));
-        AccountResponseDto targetAccount = registerAccount(BigDecimal.valueOf(1000L));
+        final AccountResponseDto originAccount = registerAccount(BigDecimal.valueOf(1000L));
+        final AccountResponseDto targetAccount = registerAccount(BigDecimal.valueOf(1000L));
 
-        final SearchResultDto<Account> accounts = target
-                .path("/accounts")
-                .request(MediaType.APPLICATION_JSON_TYPE)
-                .get(new GenericType<SearchResultDto<Account>>() {
-                });
         final WireTransferenceRequestDto requestDto = WireTransferenceRequestDto.builder()
                 .amount(BigDecimal.valueOf(500))
                 .originAccountId(originAccount.getId())
@@ -97,6 +94,21 @@ public class OperationsResourceIT extends BaseIT {
                 .isNotBlank();
         log.info("Transaction failed as expected: {}",result.getMessage());
     }
+
+    @Test
+    public void findAllTest() {
+        successTransferMoneyTest();
+        final List<WireTransference> tranferences = target
+                .path("/operations/all")
+                .request(MediaType.APPLICATION_JSON_TYPE)
+                .get(new GenericType<List<WireTransference>>() {
+                });
+
+
+        Assertions.assertThat(tranferences.isEmpty())
+                .isFalse();
+    }
+
 
 
 }
