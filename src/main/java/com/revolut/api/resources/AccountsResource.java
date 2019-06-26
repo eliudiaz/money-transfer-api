@@ -61,6 +61,7 @@ public class AccountsResource {
                 .balance(createdAccount.getBalance().getAmount())
                 .createdAt(createdAccount.getCreatedAt())
                 .lastUpdate(createdAccount.getLastUpdate())
+                .enabled(createdAccount.isEnabled())
                 .build();
     }
 

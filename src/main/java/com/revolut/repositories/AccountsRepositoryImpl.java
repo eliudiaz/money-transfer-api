@@ -47,9 +47,11 @@ public class AccountsRepositoryImpl implements AccountsRepository {
                             ACCOUNT.ENABLED)
                     .values(id.intValue(), account.getFirstName(), account.getLastName(),
                             account.getBalance().getAmount(), account.getPreviousBalance().getAmount(), moment, moment,
-                            true)
+                            account.isEnabled())
                     .execute();
             account.setId(id);
+            account.setCreatedAt(moment);
+            account.setLastUpdate(moment);
         } catch (SQLException e) {
             throw new InternalServerErrorException();
         }

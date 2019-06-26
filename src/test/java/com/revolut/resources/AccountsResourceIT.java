@@ -91,6 +91,13 @@ public class AccountsResourceIT extends BaseIT {
                 .isEqualTo(fName);
         Assertions.assertThat(result.getLastName())
                 .isEqualTo(lName);
+        Assertions.assertThat(result.isEnabled())
+                .isTrue();
+        Assertions.assertThat(result.getCreatedAt())
+                .isNotNull();
+        Assertions.assertThat(result.getLastUpdate())
+                .isNotNull();
+
         Assertions.assertThat(result.getBalance().setScale(2).equals(initialBalance)).isTrue();
     }
 
