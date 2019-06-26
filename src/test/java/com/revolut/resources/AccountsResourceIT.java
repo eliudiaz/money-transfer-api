@@ -1,9 +1,11 @@
 package com.revolut.resources;
 
 import com.revolut.api.resources.dto.requests.AccountDto;
+import com.revolut.api.resources.dto.requests.DisableRequestDto;
 import com.revolut.api.resources.dto.responses.AccountResponseDto;
 import com.revolut.api.resources.dto.responses.SearchResultDto;
 import com.revolut.model.Account;
+import com.revolut.model.DisableReason;
 import com.revolut.platform.ObjectMapperContextResolver;
 import lombok.extern.slf4j.Slf4j;
 import org.assertj.core.api.Assertions;
@@ -119,6 +121,28 @@ public class AccountsResourceIT extends BaseIT {
         Assertions.assertThat(result.getStatus())
                 .isEqualTo(422)
                 .isNotNull();
+    }
+
+    @Test
+    public void disableAccountTest() {
+        final SearchResultDto<Account> accounts = target
+                .path("/accounts")
+                .request(MediaType.APPLICATION_JSON_TYPE)
+                .get(new GenericType<SearchResultDto<Account>>() {
+                });
+
+        final DisableRequestDto requestDto = DisableRequestDto.builder()
+                .reason(DisableReason.BLOCKED.toString())
+                .build();
+
+        final Response result = target
+                .path("/accounts/".concat(accounts.getResult().get(0).getId().toString()).concat("/disable"))
+                .request(MediaType.APPLICATION_JSON_TYPE)
+                .put(Entity.entity(requestDto, MediaType.APPLICATION_JSON_TYPE));
+
+
+        Assertions.assertThat(result.getStatus())
+                .isEqualTo(204);
     }
 
     @Test

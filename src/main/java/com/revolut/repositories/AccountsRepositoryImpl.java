@@ -16,6 +16,7 @@ import java.sql.Date;
 import java.sql.SQLException;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
@@ -66,6 +67,8 @@ public class AccountsRepositoryImpl implements AccountsRepository {
                     .set(ACCOUNT.BALANCE, account.getBalance().getAmount())
                     .set(ACCOUNT.PREVIOUS_BALANCE, account.getPreviousBalance().getAmount())
                     .set(ACCOUNT.LAST_UPDATE, new Date(moment.getTime()))
+                    .set(ACCOUNT.ENABLED, account.isEnabled())
+                    .set(ACCOUNT.DISABLE_REASON, account.isEnabled() ? account.getDisabledReason().toString() : "")
                     .where(ACCOUNT.ID.eq(account.getId().intValue()))
                     .execute();
         } catch (SQLException e) {
@@ -98,7 +101,8 @@ public class AccountsRepositoryImpl implements AccountsRepository {
                             .previousBalance(Money.of(Constants.CURRENCY_UNIT, r.get(ACCOUNT.PREVIOUS_BALANCE)))
                             .createdAt(r.get(ACCOUNT.CREATED_AT))
                             .lastUpdate(r.get(ACCOUNT.LAST_UPDATE))
-                            .disabledReason(r.get(ACCOUNT.DISABLE_REASON) != null ? DisableReason.valueOf(r.get(ACCOUNT.DISABLE_REASON))
+                            .disabledReason(Objects.nonNull(r.get(ACCOUNT.DISABLE_REASON))
+                                    && !r.get(ACCOUNT.DISABLE_REASON).isEmpty() ? DisableReason.valueOf(r.get(ACCOUNT.DISABLE_REASON))
                                     : null)
                             .enabled(r.get(ACCOUNT.ENABLED))
                             .build()
@@ -113,6 +117,7 @@ public class AccountsRepositoryImpl implements AccountsRepository {
 
     public List<Account> findAll() {
         try (Connection connection = dataBaseHelper.getConnection()) {
+
             return DSL.using(connection)
                     .select(
                             ACCOUNT.ID,
@@ -136,7 +141,8 @@ public class AccountsRepositoryImpl implements AccountsRepository {
                                     .previousBalance(Money.of(Constants.CURRENCY_UNIT, r.get(ACCOUNT.PREVIOUS_BALANCE)))
                                     .createdAt(r.get(ACCOUNT.CREATED_AT))
                                     .lastUpdate(r.get(ACCOUNT.LAST_UPDATE))
-                                    .disabledReason(r.get(ACCOUNT.DISABLE_REASON) != null ? DisableReason.valueOf(r.get(ACCOUNT.DISABLE_REASON))
+                                    .disabledReason(Objects.nonNull(r.get(ACCOUNT.DISABLE_REASON))
+                                            && !r.get(ACCOUNT.DISABLE_REASON).isEmpty() ? DisableReason.valueOf(r.get(ACCOUNT.DISABLE_REASON))
                                             : null)
                                     .enabled(r.get(ACCOUNT.ENABLED))
                                     .build()

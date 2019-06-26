@@ -2,6 +2,7 @@ package com.revolut.api.resources;
 
 
 import com.revolut.api.resources.dto.requests.AccountDto;
+import com.revolut.api.resources.dto.requests.DisableRequestDto;
 import com.revolut.api.resources.dto.responses.AccountResponseDto;
 import com.revolut.api.resources.dto.responses.SearchResultDto;
 import com.revolut.model.Account;
@@ -11,6 +12,7 @@ import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -39,6 +41,13 @@ public class AccountsResource {
     @Produces(MediaType.APPLICATION_JSON)
     public Account getOne(@PathParam("id") Long id) {
         return accountsService.findById(id);
+    }
+
+    @Path("{id}/disable")
+    @PUT
+    @Produces(MediaType.APPLICATION_JSON)
+    public void disable(@PathParam("id") Long id, final DisableRequestDto disableRequestDto) {
+        accountsService.disable(id, disableRequestDto);
     }
 
     @POST
