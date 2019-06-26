@@ -3,6 +3,7 @@ package com.revolut.resources;
 import com.revolut.api.resources.dto.SearchResultDto;
 import com.revolut.model.Account;
 import com.revolut.platform.ObjectMapperContextResolver;
+import lombok.extern.slf4j.Slf4j;
 import org.assertj.core.api.Assertions;
 import org.glassfish.jersey.client.ClientConfig;
 import org.junit.Test;
@@ -12,7 +13,9 @@ import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
+@Slf4j
 public class AccountsResourceIT extends BaseIT {
 
     private Client client;
@@ -54,6 +57,17 @@ public class AccountsResourceIT extends BaseIT {
         Assertions.assertThat(account.getFirstName()).isNotNull();
         Assertions.assertThat(account.getLastName()).isNotNull();
         Assertions.assertThat(account.getBalance()).isNotNull();
+    }
+
+    @Test
+    public void notFoundAccountTest() {
+         Response response = target
+                .path("/accounts/".concat(Integer.MAX_VALUE+""))
+                .request(MediaType.APPLICATION_JSON_TYPE)
+                .get();
+
+        Assertions.assertThat(response.getStatus())
+                .isEqualTo(404);
     }
 
 
