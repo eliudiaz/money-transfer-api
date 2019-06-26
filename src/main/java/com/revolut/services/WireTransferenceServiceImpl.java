@@ -54,6 +54,10 @@ public class WireTransferenceServiceImpl implements WireTransferenceService {
                 || Objects.isNull(requestDto.getTarget())) {
             throw new DataValidationException("Mandatory fields are missing!");
         }
+
+        if(requestDto.getOrigin().getId().equals(requestDto.getTarget().getId())){
+            throw new DataValidationException("Cannot transfer to the same account!");
+        }
     }
 
     public synchronized WireTransferenceResultDto transfer(final WireTransferenceRequestDto wireTransferenceRequest) {

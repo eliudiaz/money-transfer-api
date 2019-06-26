@@ -60,7 +60,10 @@ public class WireTransferenceServiceTest {
         final Money money = Money.of(CurrencyUnit.EUR, 1000d);
         when(origin.isEnabled()).thenReturn(true);
         when(origin.getBalance()).thenReturn(money);
+        when(origin.getId()).thenReturn(1L);
         when(target.isEnabled()).thenReturn(true);
+        when(target.getId()).thenReturn(2L);
+
         WireTransferenceRequestDto request;
         request = WireTransferenceRequestDto.builder()
                 .amount(money.getAmount())
@@ -80,7 +83,9 @@ public class WireTransferenceServiceTest {
         final Money money = Money.of(CurrencyUnit.EUR, 0);
         when(origin.isEnabled()).thenReturn(true);
         when(origin.getBalance()).thenReturn(money);
+        when(origin.getId()).thenReturn(1L);
         when(target.isEnabled()).thenReturn(true);
+        when(target.getId()).thenReturn(2L);
         WireTransferenceRequestDto request;
         request = WireTransferenceRequestDto.builder()
                 .amount(Money.of(CurrencyUnit.EUR, 100).getAmount())
@@ -99,7 +104,9 @@ public class WireTransferenceServiceTest {
     public void transferWithInvalidAmountFundsTest() {
         final Money money = Money.of(CurrencyUnit.EUR, 100);
         when(origin.isEnabled()).thenReturn(true);
+        when(origin.getId()).thenReturn(1L);
         when(target.isEnabled()).thenReturn(true);
+        when(target.getId()).thenReturn(2L);
         WireTransferenceRequestDto request;
         request = WireTransferenceRequestDto.builder()
                 .amount(Money.of(CurrencyUnit.EUR, 0).getAmount())
@@ -136,8 +143,10 @@ public class WireTransferenceServiceTest {
     public void transferFromTargetDisabledAccountTest() {
         final Money money = Money.of(CurrencyUnit.EUR, 1000d);
         when(origin.isEnabled()).thenReturn(true);
+        when(origin.getId()).thenReturn(1L);
         when(target.getDisabledReason()).thenReturn(DisableReason.BLOCKED);
         when(target.isEnabled()).thenReturn(false);
+        when(target.getId()).thenReturn(2L);
 
         WireTransferenceRequestDto request;
         request = WireTransferenceRequestDto.builder()
