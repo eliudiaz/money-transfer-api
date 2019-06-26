@@ -1,7 +1,7 @@
 package com.revolut.resources;
 
-import com.revolut.api.resources.dto.requests.AccountDto;
-import com.revolut.api.resources.dto.requests.DisableRequestDto;
+import com.revolut.api.resources.dto.requests.CreateAccountRequestDto;
+import com.revolut.api.resources.dto.requests.DisableAccountRequestDto;
 import com.revolut.api.resources.dto.responses.AccountResponseDto;
 import com.revolut.api.resources.dto.responses.SearchResultDto;
 import com.revolut.model.Account;
@@ -80,7 +80,7 @@ public class AccountsResourceIT extends BaseIT {
     public void createAccountTest() {
         String fName = "test", lName = "test";
         BigDecimal initialBalance = BigDecimal.valueOf(500.00).setScale(2);
-        final AccountDto requestDto = AccountDto.builder()
+        final CreateAccountRequestDto requestDto = CreateAccountRequestDto.builder()
                 .initialBalance(initialBalance)
                 .firstName(fName)
                 .lastName(lName)
@@ -106,7 +106,7 @@ public class AccountsResourceIT extends BaseIT {
     public void createAccountWithInvalidBalanceTest() {
         String fName = "test", lName = "test";
         BigDecimal initialBalance = BigDecimal.valueOf(-1).setScale(2);
-        final AccountDto requestDto = AccountDto.builder()
+        final CreateAccountRequestDto requestDto = CreateAccountRequestDto.builder()
                 .initialBalance(initialBalance)
                 .firstName(fName)
                 .lastName(lName)
@@ -131,7 +131,7 @@ public class AccountsResourceIT extends BaseIT {
                 .get(new GenericType<SearchResultDto<Account>>() {
                 });
 
-        final DisableRequestDto requestDto = DisableRequestDto.builder()
+        final DisableAccountRequestDto requestDto = DisableAccountRequestDto.builder()
                 .reason(DisableReason.BLOCKED.toString())
                 .build();
 
@@ -148,7 +148,7 @@ public class AccountsResourceIT extends BaseIT {
     @Test
     public void createAccountWithoutMandatoryFieldsBalanceTest() {
         BigDecimal initialBalance = BigDecimal.ZERO.setScale(2);
-        final AccountDto requestDto = AccountDto.builder()
+        final CreateAccountRequestDto requestDto = CreateAccountRequestDto.builder()
                 .initialBalance(initialBalance)
                 .build();
 

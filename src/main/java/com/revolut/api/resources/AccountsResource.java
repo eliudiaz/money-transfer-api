@@ -1,8 +1,8 @@
 package com.revolut.api.resources;
 
 
-import com.revolut.api.resources.dto.requests.AccountDto;
-import com.revolut.api.resources.dto.requests.DisableRequestDto;
+import com.revolut.api.resources.dto.requests.CreateAccountRequestDto;
+import com.revolut.api.resources.dto.requests.DisableAccountRequestDto;
 import com.revolut.api.resources.dto.responses.AccountResponseDto;
 import com.revolut.api.resources.dto.responses.SearchResultDto;
 import com.revolut.model.Account;
@@ -46,15 +46,15 @@ public class AccountsResource {
     @Path("{id}/disable")
     @PUT
     @Produces(MediaType.APPLICATION_JSON)
-    public void disable(@PathParam("id") Long id, final DisableRequestDto disableRequestDto) {
-        accountsService.disable(id, disableRequestDto);
+    public void disable(@PathParam("id") Long id, final DisableAccountRequestDto disableAccountRequestDto) {
+        accountsService.disable(id, disableAccountRequestDto);
     }
 
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    public AccountResponseDto create(AccountDto accountDto) {
-        final Account createdAccount = accountsService.save(accountDto);
+    public AccountResponseDto create(CreateAccountRequestDto createAccountRequestDto) {
+        final Account createdAccount = accountsService.save(createAccountRequestDto);
         return AccountResponseDto.builder()
                 .id(createdAccount.getId())
                 .firstName(createdAccount.getFirstName())

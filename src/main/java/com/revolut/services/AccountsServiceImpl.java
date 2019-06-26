@@ -1,7 +1,7 @@
 package com.revolut.services;
 
-import com.revolut.api.resources.dto.requests.AccountDto;
-import com.revolut.api.resources.dto.requests.DisableRequestDto;
+import com.revolut.api.resources.dto.requests.CreateAccountRequestDto;
+import com.revolut.api.resources.dto.requests.DisableAccountRequestDto;
 import com.revolut.exception.DataValidationException;
 import com.revolut.exception.ResourceNotFoundException;
 import com.revolut.model.Account;
@@ -10,7 +10,6 @@ import com.revolut.model.TransactionLog;
 import com.revolut.repositories.AccountsRepository;
 import com.revolut.repositories.TransactionsLogsRepository;
 import com.revolut.util.Constants;
-import jersey.repackaged.com.google.common.collect.Lists;
 import org.joda.money.Money;
 
 import javax.inject.Inject;
@@ -32,7 +31,7 @@ public class AccountsServiceImpl implements AccountsService {
         this.transactionsLogsRepository = transactionsLogsRepository;
     }
 
-    private void checkMandatoryFields(AccountDto requestDto) {
+    private void checkMandatoryFields(CreateAccountRequestDto requestDto) {
         if (Objects.isNull(requestDto.getInitialBalance())
                 || Objects.isNull(requestDto.getFirstName())
                 || Objects.isNull(requestDto.getLastName())) {
@@ -43,7 +42,7 @@ public class AccountsServiceImpl implements AccountsService {
         }
     }
 
-    public Account save(final AccountDto account) {
+    public Account save(final CreateAccountRequestDto account) {
         checkMandatoryFields(account);
         final Account dbAccount = Account.builder()
                 .firstName(account.getFirstName())
@@ -67,7 +66,7 @@ public class AccountsServiceImpl implements AccountsService {
     }
 
     @Override
-    public void disable(Long accountId, DisableRequestDto disableReason) {
+    public void disable(Long accountId, DisableAccountRequestDto disableReason) {
 
         if (!Arrays.asList(DisableReason.values())
                 .stream()

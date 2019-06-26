@@ -11,6 +11,6 @@ import lombok.Setter;
 @Getter
 @Setter
 @Builder
-public class DisableRequestDto {
+public class DisableAccountRequestDto {
     String reason;
 }

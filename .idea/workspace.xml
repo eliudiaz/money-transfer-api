@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1755d5a6-3b7f-4bd8-85f4-8a561842ac02" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/revolut/api/resources/dto/requests/DisableRequestDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/revolut/api/resources/AccountsResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/revolut/api/resources/AccountsResource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/revolut/repositories/AccountsRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/revolut/repositories/AccountsRepositoryImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/revolut/api/resources/dto/requests/AccountDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/revolut/api/resources/dto/requests/CreateAccountRequestDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/revolut/api/resources/dto/requests/DisableRequestDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/revolut/api/resources/dto/requests/DisableAccountRequestDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/revolut/services/AccountsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/revolut/services/AccountsService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/revolut/services/AccountsServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/revolut/services/AccountsServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/revolut/resources/AccountsResourceIT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/revolut/resources/AccountsResourceIT.java" afterDir="false" />
@@ -42,7 +41,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/com/revolut/services/AccountsService.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="119">
-              <caret line="12" column="9" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="9" />
+              <caret line="11" column="9" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -61,7 +60,7 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/revolut/api/resources/dto/requests/DisableRequestDto.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/revolut/api/resources/dto/requests/DisableAccountRequestDto.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="204">
               <caret line="12" column="8" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="8" />
@@ -75,7 +74,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/revolut/resources/AccountsResourceIT.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1905">
+            <state relative-caret-position="259">
               <caret line="139" column="23" selection-start-line="139" selection-start-column="23" selection-end-line="139" selection-end-column="23" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -94,19 +93,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/revolut/exception/ExceptionsHandler.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="11" selection-start-line="11" selection-end-line="11" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/revolut/repositories/AccountsRepositoryImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="97">
-              <caret line="132" selection-start-line="132" selection-end-line="132" />
+            <state relative-caret-position="281">
+              <caret line="105" column="43" lean-forward="true" selection-start-line="105" selection-start-column="43" selection-end-line="105" selection-end-column="43" />
             </state>
           </provider>
         </entry>
@@ -114,8 +104,29 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/revolut/services/AccountsServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="321">
-              <caret line="79" selection-start-line="79" selection-end-line="79" />
+            <state relative-caret-position="1105">
+              <caret line="82" selection-start-line="82" selection-end-line="82" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/revolut/api/resources/dto/requests/CreateAccountRequestDto.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="13" column="18" selection-start-line="13" selection-start-column="18" selection-end-line="13" selection-end-column="18" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://$MAVEN_REPOSITORY$/org/glassfish/jersey/core/jersey-server/2.9.1/jersey-server-2.9.1.jar!/org/glassfish/jersey/server/model/internal/AbstractJavaResourceMethodDispatcher.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="82" selection-start-line="82" selection-end-line="82" />
             </state>
           </provider>
         </entry>
@@ -158,12 +169,13 @@
         <option value="$PROJECT_DIR$/src/main/java/com/revolut/api/resources/dto/AccountDto.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/revolut/api/resources/dto/requests/AccountDto.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/revolut/api/resources/dto/responses/AccountResponseDto.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/revolut/repositories/AccountsRepositoryImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/revolut/services/AccountsService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/revolut/api/resources/dto/requests/DisableRequestDto.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/revolut/api/resources/AccountsResource.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/revolut/services/AccountsServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/revolut/resources/AccountsResourceIT.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/revolut/repositories/AccountsRepositoryImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/revolut/api/resources/dto/requests/CreateAccountRequestDto.java" />
       </list>
     </option>
   </component>
@@ -328,7 +340,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1561520897202" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1561520945870" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -446,24 +458,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="AccountsResourceIT_createAccountTest - 2019.06.25 at 18h 49m 16s.xml">
-      <configuration name="AccountsResourceIT.createAccountTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="AccountsResourceIT_createAccountWithInvalidBalanceTest - 2019.06.25 at 18h 56m 26s.xml">
-      <configuration name="AccountsResourceIT.createAccountWithInvalidBalanceTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="AccountsResourceIT_createAccountWithInvalidBalanceTest - 2019.06.25 at 18h 56m 42s.xml">
-      <configuration name="AccountsResourceIT.createAccountWithInvalidBalanceTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="AccountsResourceIT_createAccountWithoutMandatoryFieldsBalanceTest - 2019.06.25 at 18h 57m 21s.xml">
-      <configuration name="AccountsResourceIT.createAccountWithoutMandatoryFieldsBalanceTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="All_in_money-transfer-api - 2019.06.25 at 18h 57m 46s.xml">
-      <configuration name="All in money-transfer-api" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="AccountsResourceIT_disableAccountTest - 2019.06.25 at 19h 10m 10s.xml">
-      <configuration name="AccountsResourceIT.disableAccountTest" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="AccountsResourceIT_disableAccountTest - 2019.06.25 at 19h 10m 33s.xml">
       <configuration name="AccountsResourceIT.disableAccountTest" configurationId="JUnit" />
     </history-entry>
@@ -476,15 +470,32 @@
     <history-entry file="AccountsResourceIT_disableAccountTest - 2019.06.25 at 19h 14m 29s.xml">
       <configuration name="AccountsResourceIT.disableAccountTest" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="AccountsResourceIT_disableAccountTest - 2019.06.25 at 21h 45m 22s.xml">
+      <configuration name="AccountsResourceIT.disableAccountTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="AccountsResourceIT_disableAccountTest - 2019.06.25 at 21h 46m 07s.xml">
+      <configuration name="AccountsResourceIT.disableAccountTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="AccountsResourceIT_disableAccountTest - 2019.06.25 at 21h 47m 44s.xml">
+      <configuration name="AccountsResourceIT.disableAccountTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="AccountsResourceIT_disableAccountTest - 2019.06.25 at 21h 48m 11s.xml">
+      <configuration name="AccountsResourceIT.disableAccountTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="AccountsResourceIT_disableAccountTest - 2019.06.25 at 21h 48m 40s.xml">
+      <configuration name="AccountsResourceIT.disableAccountTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="AccountsResourceIT_disableAccountTest - 2019.06.25 at 21h 49m 24s.xml">
+      <configuration name="AccountsResourceIT.disableAccountTest" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5056000" />
+    <option name="totallyTimeSpent" value="5358000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1877" y="101" width="1869" height="1048" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.71933085" visible="true" weight="0.3136289" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.71933085" visible="true" weight="0.3136289" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -494,11 +505,11 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3295325" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.46623793" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.4640943" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4640943" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.42336547" />
+      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.42336547" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.3290461" />
@@ -525,33 +536,20 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/revolut/services/AccountsServiceImpl.java</url>
-          <line>72</line>
-          <properties />
-          <option name="timeStamp" value="16" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/revolut/services/AccountsServiceImpl.java</url>
           <line>79</line>
           <properties />
-          <option name="timeStamp" value="17" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/revolut/repositories/AccountsRepositoryImpl.java</url>
-          <line>133</line>
-          <properties />
-          <option name="timeStamp" value="18" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/revolut/repositories/AccountsRepositoryImpl.java</url>
-          <line>132</line>
-          <properties />
-          <option name="timeStamp" value="19" />
+          <option name="timeStamp" value="22" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateCodeFragment">
+      <expression>
+        <expression-string>r.get(ACCOUNT.DISABLE_REASON)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
       <expression>
         <expression-string>Arrays.asList(DisableReason.values())</expression-string>
         <language-id>JAVA</language-id>
@@ -676,13 +674,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/glassfish/jersey/core/jersey-server/2.9.1/jersey-server-2.9.1.jar!/org/glassfish/jersey/server/model/internal/AbstractJavaResourceMethodDispatcher.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="137">
-          <caret line="51" selection-start-line="51" selection-end-line="51" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/glassfish/jersey/core/jersey-server/2.9.1/jersey-server-2.9.1.jar!/org/glassfish/jersey/server/model/ResourceMethodInvoker.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -783,16 +774,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/revolut/api/resources/dto/requests/AccountDto.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="8" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/revolut/api/resources/dto/responses/AccountResponseDto.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -859,7 +840,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/revolut/api/resources/dto/requests/DisableRequestDto.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/revolut/api/resources/dto/requests/DisableAccountRequestDto.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="12" column="8" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="8" />
@@ -883,20 +864,13 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/com/revolut/services/AccountsService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
-          <caret line="12" column="9" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/revolut/services/AccountsServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="321">
-          <caret line="79" selection-start-line="79" selection-end-line="79" />
+          <caret line="11" column="9" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="9" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/revolut/resources/AccountsResourceIT.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1905">
+        <state relative-caret-position="259">
           <caret line="139" column="23" selection-start-line="139" selection-start-column="23" selection-end-line="139" selection-end-column="23" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -904,10 +878,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/glassfish/jersey/core/jersey-server/2.9.1/jersey-server-2.9.1.jar!/org/glassfish/jersey/server/model/internal/AbstractJavaResourceMethodDispatcher.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="82" selection-start-line="82" selection-end-line="82" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/revolut/repositories/AccountsRepositoryImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="97">
-          <caret line="132" selection-start-line="132" selection-end-line="132" />
+        <state relative-caret-position="281">
+          <caret line="105" column="43" lean-forward="true" selection-start-line="105" selection-start-column="43" selection-end-line="105" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/revolut/services/AccountsServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1105">
+          <caret line="82" selection-start-line="82" selection-end-line="82" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/revolut/api/resources/dto/requests/CreateAccountRequestDto.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="18" selection-start-line="13" selection-start-column="18" selection-end-line="13" selection-end-column="18" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

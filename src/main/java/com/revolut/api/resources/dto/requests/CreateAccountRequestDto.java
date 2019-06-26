@@ -11,7 +11,7 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class AccountDto {
+public class CreateAccountRequestDto {
     private String firstName;
     private String lastName;
     private BigDecimal initialBalance;
