@@ -1,6 +1,8 @@
 package com.revolut.services;
 
 import com.revolut.api.resources.dto.requests.AccountDto;
+import com.revolut.api.resources.dto.requests.WireTransferenceRequestDto;
+import com.revolut.exception.DataValidationException;
 import com.revolut.exception.ResourceNotFoundException;
 import com.revolut.model.Account;
 import com.revolut.model.TransactionLog;
@@ -12,6 +14,7 @@ import org.joda.money.Money;
 import javax.inject.Inject;
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 public class AccountsServiceImpl implements AccountsService {
@@ -26,7 +29,19 @@ public class AccountsServiceImpl implements AccountsService {
         this.transactionsLogsRepository = transactionsLogsRepository;
     }
 
+    private void checkMandatoryFields(AccountDto requestDto) {
+        if (Objects.isNull(requestDto.getInitialBalance())
+                || Objects.isNull(requestDto.getFirstName())
+                || Objects.isNull(requestDto.getLastName())) {
+            throw new DataValidationException("Mandatory fields are missing!");
+        }
+        if (BigDecimal.ZERO.compareTo(requestDto.getInitialBalance()) > 0) {
+            throw new DataValidationException("Initial balance greater than zero!");
+        }
+    }
+
     public Account save(final AccountDto account) {
+        checkMandatoryFields(account);
         final Account dbAccount = Account.builder()
                 .firstName(account.getFirstName())
                 .lastName(account.getLastName())

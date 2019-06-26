@@ -100,5 +100,44 @@ public class AccountsResourceIT extends BaseIT {
         Assertions.assertThat(result.getBalance().setScale(2).equals(initialBalance)).isTrue();
     }
 
+    @Test
+    public void createAccountWithInvalidBalanceTest() {
+        String fName = "test", lName = "test";
+        BigDecimal initialBalance = BigDecimal.valueOf(-1).setScale(2);
+        final AccountDto requestDto = AccountDto.builder()
+                .initialBalance(initialBalance)
+                .firstName(fName)
+                .lastName(lName)
+                .build();
+
+        final Response result = target
+                .path("/accounts")
+                .request(MediaType.APPLICATION_JSON_TYPE)
+                .post(Entity.entity(requestDto, MediaType.APPLICATION_JSON_TYPE));
+
+
+        Assertions.assertThat(result.getStatus())
+                .isEqualTo(422)
+                .isNotNull();
+    }
+
+    @Test
+    public void createAccountWithoutMandatoryFieldsBalanceTest() {
+        BigDecimal initialBalance = BigDecimal.ZERO.setScale(2);
+        final AccountDto requestDto = AccountDto.builder()
+                .initialBalance(initialBalance)
+                .build();
+
+        final Response result = target
+                .path("/accounts")
+                .request(MediaType.APPLICATION_JSON_TYPE)
+                .post(Entity.entity(requestDto, MediaType.APPLICATION_JSON_TYPE));
+
+
+        Assertions.assertThat(result.getStatus())
+                .isEqualTo(422)
+                .isNotNull();
+    }
+
 
 }
