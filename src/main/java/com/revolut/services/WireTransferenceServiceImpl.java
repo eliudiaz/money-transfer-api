@@ -1,7 +1,7 @@
 package com.revolut.services;
 
-import com.revolut.api.resources.dto.WireTransferenceRequestDto;
-import com.revolut.api.resources.dto.WireTransferenceResultDto;
+import com.revolut.api.resources.dto.requests.WireTransferenceRequestDto;
+import com.revolut.api.resources.dto.responses.WireTransferenceResultDto;
 import com.revolut.exception.AccountDisabledException;
 import com.revolut.exception.DataValidationException;
 import com.revolut.exception.InvalidAmountException;

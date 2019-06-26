@@ -1,8 +1,8 @@
 package com.revolut.resources;
 
-import com.revolut.api.resources.dto.SearchResultDto;
-import com.revolut.api.resources.dto.WireTransferenceRequestDto;
-import com.revolut.api.resources.dto.WireTransferenceResultDto;
+import com.revolut.api.resources.dto.responses.SearchResultDto;
+import com.revolut.api.resources.dto.requests.WireTransferenceRequestDto;
+import com.revolut.api.resources.dto.responses.WireTransferenceResultDto;
 import com.revolut.exception.ErrorMessage;
 import com.revolut.model.Account;
 import com.revolut.platform.ObjectMapperContextResolver;

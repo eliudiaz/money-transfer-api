@@ -1,4 +1,4 @@
-package com.revolut.api.resources.dto;
+package com.revolut.api.resources.dto.responses;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

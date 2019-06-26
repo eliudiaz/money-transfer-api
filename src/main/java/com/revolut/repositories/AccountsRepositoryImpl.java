@@ -2,6 +2,7 @@ package com.revolut.repositories;
 
 import com.revolut.model.Account;
 import com.revolut.model.DisableReason;
+import com.revolut.model.Sequences;
 import com.revolut.util.Constants;
 import com.revolut.util.DataBaseHelper;
 import org.joda.money.Money;
@@ -33,14 +34,23 @@ public class AccountsRepositoryImpl implements AccountsRepository {
     public void save(Account account) {
         final Date moment = new Date(Calendar.getInstance().getTime().getTime());
         try (final Connection connection = dataBaseHelper.getConnection()) {
+            final Long id = DSL.using(connection).nextval(Sequences.S_ACCOUNT_ID);
             DSL.using(connection)
                     .insertInto(ACCOUNT)
-                    .columns(ACCOUNT.FIRST_NAME, ACCOUNT.LAST_NAME, ACCOUNT.BALANCE,
+                    .columns(
+                            ACCOUNT.ID,
+                            ACCOUNT.FIRST_NAME,
+                            ACCOUNT.LAST_NAME,
+                            ACCOUNT.BALANCE,
                             ACCOUNT.PREVIOUS_BALANCE,
-                            ACCOUNT.CREATED_AT, ACCOUNT.LAST_UPDATE)
-                    .values(account.getFirstName(), account.getLastName(), account.getBalance().getAmount(),
-                            account.getPreviousBalance().getAmount(), moment, moment)
+                            ACCOUNT.CREATED_AT,
+                            ACCOUNT.LAST_UPDATE,
+                            ACCOUNT.ENABLED)
+                    .values(id.intValue(), account.getFirstName(), account.getLastName(),
+                            account.getBalance().getAmount(), account.getPreviousBalance().getAmount(), moment, moment,
+                            true)
                     .execute();
+            account.setId(id);
         } catch (SQLException e) {
             throw new InternalServerErrorException();
         }

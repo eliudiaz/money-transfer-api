@@ -1,4 +1,4 @@
-package com.revolut.api.resources.dto;
+package com.revolut.api.resources.dto.requests;
 
 import com.revolut.model.Account;
 import lombok.AllArgsConstructor;

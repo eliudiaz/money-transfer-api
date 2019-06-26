@@ -1,12 +1,16 @@
 package com.revolut.services;
 
+import com.revolut.api.resources.dto.requests.AccountDto;
 import com.revolut.exception.ResourceNotFoundException;
 import com.revolut.model.Account;
 import com.revolut.model.TransactionLog;
 import com.revolut.repositories.AccountsRepository;
 import com.revolut.repositories.TransactionsLogsRepository;
+import com.revolut.util.Constants;
+import org.joda.money.Money;
 
 import javax.inject.Inject;
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 
@@ -22,8 +26,15 @@ public class AccountsServiceImpl implements AccountsService {
         this.transactionsLogsRepository = transactionsLogsRepository;
     }
 
-    public void save(final Account account) {
-        accountsRepository.save(account);
+    public Account save(final AccountDto account) {
+        final Account dbAccount = Account.builder()
+                .firstName(account.getFirstName())
+                .lastName(account.getLastName())
+                .balance(Money.of(Constants.CURRENCY_UNIT, account.getInitialBalance()))
+                .previousBalance(Constants.ZERO)
+                .build();
+        accountsRepository.save(dbAccount);
+        return dbAccount;
     }
 
     public Account findById(final Long accountId) {

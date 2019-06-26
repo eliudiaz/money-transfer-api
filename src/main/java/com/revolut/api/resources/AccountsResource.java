@@ -1,12 +1,16 @@
 package com.revolut.api.resources;
 
 
-import com.revolut.api.resources.dto.SearchResultDto;
+import com.revolut.api.resources.dto.requests.AccountDto;
+import com.revolut.api.resources.dto.responses.AccountResponseDto;
+import com.revolut.api.resources.dto.responses.SearchResultDto;
 import com.revolut.model.Account;
 import com.revolut.services.AccountsService;
 
 import javax.inject.Inject;
+import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -36,4 +40,20 @@ public class AccountsResource {
     public Account getOne(@PathParam("id") Long id) {
         return accountsService.findById(id);
     }
+
+    @POST
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    public AccountResponseDto create(AccountDto accountDto) {
+        final Account createdAccount = accountsService.save(accountDto);
+        return AccountResponseDto.builder()
+                .id(createdAccount.getId())
+                .firstName(createdAccount.getFirstName())
+                .lastName(createdAccount.getLastName())
+                .balance(createdAccount.getBalance().getAmount())
+                .createdAt(createdAccount.getCreatedAt())
+                .lastUpdate(createdAccount.getLastUpdate())
+                .build();
+    }
+
 }
