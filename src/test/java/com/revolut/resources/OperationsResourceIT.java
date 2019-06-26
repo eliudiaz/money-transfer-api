@@ -1,5 +1,7 @@
 package com.revolut.resources;
 
+import com.revolut.api.resources.dto.requests.CreateAccountRequestDto;
+import com.revolut.api.resources.dto.responses.AccountResponseDto;
 import com.revolut.api.resources.dto.responses.SearchResultDto;
 import com.revolut.api.resources.dto.requests.WireTransferenceRequestDto;
 import com.revolut.api.resources.dto.responses.WireTransferenceResultDto;
@@ -33,8 +35,21 @@ public class OperationsResourceIT extends BaseIT {
         target = client.target(getApiContext());
     }
 
+    private AccountResponseDto registerAccount(BigDecimal amount){
+        String fName = "test", lName = "test";
+        final CreateAccountRequestDto requestDto = buildCreateAccountRequest(fName,lName,amount);
+        return target
+                .path("/accounts")
+                .request(MediaType.APPLICATION_JSON_TYPE)
+                .post(Entity.entity(requestDto, MediaType.APPLICATION_JSON_TYPE))
+                .readEntity(AccountResponseDto.class);
+    }
+
     @Test
     public void successTransferMoneyTest() {
+        AccountResponseDto originAccount = registerAccount(BigDecimal.valueOf(1000L));
+        AccountResponseDto targetAccount = registerAccount(BigDecimal.valueOf(1000L));
+
         final SearchResultDto<Account> accounts = target
                 .path("/accounts")
                 .request(MediaType.APPLICATION_JSON_TYPE)
@@ -42,8 +57,8 @@ public class OperationsResourceIT extends BaseIT {
                 });
         final WireTransferenceRequestDto requestDto = WireTransferenceRequestDto.builder()
                 .amount(BigDecimal.valueOf(500))
-                .originAccountId(accounts.getResult().get(0).getId())
-                .targetAccountId(accounts.getResult().get(1).getId())
+                .originAccountId(originAccount.getId())
+                .targetAccountId(targetAccount.getId())
                 .build();
 
         final WireTransferenceResultDto result = target

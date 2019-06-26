@@ -1,17 +1,16 @@
 package com.revolut.services;
 
+import com.revolut.api.resources.dto.requests.WireTransferenceRequestDto;
+import com.revolut.api.resources.dto.responses.WireTransferenceResultDto;
 import com.revolut.exception.AccountDisabledException;
 import com.revolut.exception.InvalidAmountException;
 import com.revolut.exception.NotFundsException;
 import com.revolut.model.Account;
-import com.revolut.model.DisableReason;
 import com.revolut.model.TransactionLog;
 import com.revolut.model.WireTransference;
 import com.revolut.repositories.AccountsRepository;
 import com.revolut.repositories.TransactionsLogsRepository;
 import com.revolut.repositories.WireTransferenceRepository;
-import com.revolut.api.resources.dto.requests.WireTransferenceRequestDto;
-import com.revolut.api.resources.dto.responses.WireTransferenceResultDto;
 import org.joda.money.CurrencyUnit;
 import org.joda.money.Money;
 import org.junit.Before;
@@ -127,7 +126,6 @@ public class WireTransferenceServiceTest {
         final Long anyId = 123L;
         when(origin.isEnabled()).thenReturn(false);
         when(origin.getId()).thenReturn(anyId);
-        when(origin.getDisabledReason()).thenReturn(DisableReason.BLOCKED);
 
         WireTransferenceRequestDto request;
         request = WireTransferenceRequestDto.builder()
@@ -144,7 +142,6 @@ public class WireTransferenceServiceTest {
         final Money money = Money.of(CurrencyUnit.EUR, 1000d);
         when(origin.isEnabled()).thenReturn(true);
         when(origin.getId()).thenReturn(1L);
-        when(target.getDisabledReason()).thenReturn(DisableReason.BLOCKED);
         when(target.isEnabled()).thenReturn(false);
         when(target.getId()).thenReturn(2L);
 

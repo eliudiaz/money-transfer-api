@@ -28,7 +28,6 @@ public class Account {
     private Date createdAt;
     private Date lastUpdate;
     private boolean enabled;
-    private DisableReason disabledReason;
     private List<TransactionLog> recentTransactions;
 
 }

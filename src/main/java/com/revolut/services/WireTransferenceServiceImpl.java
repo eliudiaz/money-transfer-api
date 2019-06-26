@@ -42,8 +42,7 @@ public class WireTransferenceServiceImpl implements WireTransferenceService {
     private void validateAccountsIsEnabled(final Account account) {
         if (!account.isEnabled()) {
             throw new AccountDisabledException(new StringBuilder("Account: ").append(account.getId())
-                    .append(" has invalid type: ")
-                    .append(account.getDisabledReason().toString())
+                    .append(" is disabled!")
                     .toString());
         }
     }
@@ -55,7 +54,7 @@ public class WireTransferenceServiceImpl implements WireTransferenceService {
             throw new DataValidationException("Mandatory fields are missing!");
         }
 
-        if(requestDto.getOrigin().getId().equals(requestDto.getTarget().getId())){
+        if (requestDto.getOrigin().getId().equals(requestDto.getTarget().getId())) {
             throw new DataValidationException("Cannot transfer to the same account!");
         }
     }

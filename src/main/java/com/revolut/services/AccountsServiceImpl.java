@@ -1,11 +1,9 @@
 package com.revolut.services;
 
 import com.revolut.api.resources.dto.requests.CreateAccountRequestDto;
-import com.revolut.api.resources.dto.requests.DisableAccountRequestDto;
 import com.revolut.exception.DataValidationException;
 import com.revolut.exception.ResourceNotFoundException;
 import com.revolut.model.Account;
-import com.revolut.model.DisableReason;
 import com.revolut.model.TransactionLog;
 import com.revolut.repositories.AccountsRepository;
 import com.revolut.repositories.TransactionsLogsRepository;
@@ -14,7 +12,6 @@ import org.joda.money.Money;
 
 import javax.inject.Inject;
 import java.math.BigDecimal;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -49,6 +46,7 @@ public class AccountsServiceImpl implements AccountsService {
                 .lastName(account.getLastName())
                 .balance(Money.of(Constants.CURRENCY_UNIT, account.getInitialBalance()))
                 .previousBalance(Constants.ZERO)
+                .enabled(true)
                 .build();
         accountsRepository.save(dbAccount);
         return dbAccount;
@@ -66,19 +64,9 @@ public class AccountsServiceImpl implements AccountsService {
     }
 
     @Override
-    public void disable(Long accountId, DisableAccountRequestDto disableReason) {
-
-        if (!Arrays.asList(DisableReason.values())
-                .stream()
-                .map(DisableReason::name)
-                .filter(reason -> reason.equalsIgnoreCase(disableReason.getReason()))
-                .findAny().isPresent()) {
-            throw new DataValidationException("Unsupported reason message!");
-        }
-
+    public void disable(Long accountId) {
         final Account account = findById(accountId);
         account.setEnabled(false);
-        account.setDisabledReason(DisableReason.valueOf(disableReason.getReason()));
         accountsRepository.update(account);
     }
 

@@ -20,4 +20,5 @@ public class AccountResponseDto {
     private BigDecimal balance;
     private Date createdAt;
     private Date lastUpdate;
+    private boolean enabled;
 }

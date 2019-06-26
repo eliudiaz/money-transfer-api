@@ -1,10 +1,13 @@
 package com.revolut.resources;
 
 import com.revolut.App;
+import com.revolut.api.resources.dto.requests.CreateAccountRequestDto;
 import lombok.Getter;
 import lombok.Setter;
 import org.junit.After;
 import org.junit.Before;
+
+import java.math.BigDecimal;
 
 @Getter
 @Setter
@@ -25,6 +28,16 @@ public abstract class BaseIT {
                 .toString();
         app.launch(true);
         beforeTest();
+    }
+
+    public static CreateAccountRequestDto buildCreateAccountRequest(
+            final String fName, final String lName, final BigDecimal amount
+    ) {
+        return CreateAccountRequestDto.builder()
+                .initialBalance(amount)
+                .firstName(fName)
+                .lastName(lName)
+                .build();
     }
 
     public abstract void beforeTest();
