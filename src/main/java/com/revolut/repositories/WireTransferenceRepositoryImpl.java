@@ -77,6 +77,7 @@ public class WireTransferenceRepositoryImpl implements WireTransferenceRepositor
                                     .originAccountId(r.get(WIRE_TRANSFER.ORIGIN_ACCOUNT_ID).longValue())
                                     .targetAccountId(r.get(WIRE_TRANSFER.TARGET_ACCOUNT_ID).longValue())
                                     .createdAt(r.get(WIRE_TRANSFER.CREATED_AT))
+                                    .status(WireTransference.Status.valueOf(r.get(WIRE_TRANSFER.STATUS)))
                                     .build()
                     ).collect(Collectors.toList());
         } catch (SQLException e) {

@@ -34,7 +34,6 @@ public class ObjectMapperContextResolver implements ContextResolver<ObjectMapper
         ObjectMapper mapper = new ObjectMapper();
         mapper.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
         mapper.enable(SerializationFeature.INDENT_OUTPUT);
-        mapper.enable(SerializationFeature.WRITE_ENUMS_USING_INDEX);
         mapper.disable(SerializationFeature.FAIL_ON_EMPTY_BEANS);
         mapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
         mapper.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
