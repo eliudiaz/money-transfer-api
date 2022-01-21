@@ -16,7 +16,7 @@
         <mockito.version>1.9.5</mockito.version>
         <lombok.version>1.18.6</lombok.version>
         <org.jooq.version>3.11.11</org.jooq.version>
-        <org.h2.version>1.4.199</org.h2.version>
+        <org.h2.version>2.1.210</org.h2.version>
         <db.url>jdbc:h2:~/money_transfer</db.url>
         <db.username>sa</db.username>
         <jetty.version>9.2.0.v20140526</jetty.version>
