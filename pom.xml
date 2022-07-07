@@ -19,7 +19,7 @@
         <org.h2.version>1.4.199</org.h2.version>
         <db.url>jdbc:h2:~/money_transfer</db.url>
         <db.username>sa</db.username>
-        <jetty.version>9.2.0.v20140526</jetty.version>
+        <jetty.version>10.0.10</jetty.version>
         <joda.version>1.0.1</joda.version>
         <guice.version>3.0</guice.version>
         <swagger.version>1.5.13</swagger.version>
